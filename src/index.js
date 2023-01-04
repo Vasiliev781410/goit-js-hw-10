@@ -39,7 +39,7 @@ function decorCountryInfo(countryInfoList){
 
 function createCountryElements(data){
   //console.log(data);
-  let markup = data.map((country) => `<li class="country__item"><img class="country__image" src=${country.flags.svg} alt="flag of "+${country.altSpellings[1]} width="30" height="30"> <span> ${country.name.official}</span></li>`).join("");
+  let markup = data.map((country) => `<li class="country__item"><img class="country__image" src=${country.flags.svg} alt="flag of "+${country.name.official} width="30" height="30"> <span> ${country.name.official}</span></li>`).join("");
   countryList.insertAdjacentHTML("beforeend", markup);
    
   if (data.length < 2) { 
