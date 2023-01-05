@@ -45,10 +45,10 @@ function createCountryElements(data){
   if (data.length < 2) { 
     const country = data[0];
     let markupInfo = "";     
-    const markupInfo1 = `<li class="country__infoItem"> Capital: <span class="country__infoValue"> ${country.capital[0]}</span></li>`;
-    const markupInfo2 = `<li class="country__infoItem"> Population: <span class="country__infoValue"> ${country.population}</span></li>`;                                   
+    const markupInfo1 = `<li class="country__infoItem"> Capital: <span class="country__infoValue" style="font-weight: 400;"> ${country.capital[0]}</span></li>`;
+    const markupInfo2 = `<li class="country__infoItem"> Population: <span class="country__infoValue" style="font-weight: 400;"> ${country.population}</span></li>`;                                   
     const languages = Object.values(country.languages).join(", ");   
-    const markupInfo3 = `<li class="country__infoItem"> Languages: <span class="country__infoValue"> ${languages}</span></li>`; 
+    const markupInfo3 = `<li class="country__infoItem"> Languages: <span class="country__infoValue" style="font-weight: 400;"> ${languages}</span></li>`; 
     markupInfo = markupInfo1 + markupInfo2 + markupInfo3;
     markupInfo = `<ul class="country__infoList">`+markupInfo+`</ul>`;
     countryInfo.insertAdjacentHTML("beforeend", markupInfo);  

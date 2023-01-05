@@ -22,3 +22,8 @@ body {
 .country-list{
   list-style-type: none;    
 }
+
+.country__infoItem{
+  font-size: 20px;
+  font-weight: 700;
+}
