@@ -60,13 +60,13 @@ function createCountryElements(data){
 let name = "";
 
 function search(){ 
-  name = inp.value.trim();
-  countryList.innerHTML = "";  
-  countryInfo.innerHTML = "";  
+  name = inp.value.trim(); 
   //console.log(name);    
   if (name === ""){  
     return;
-  }     
+  }  
+  countryList.innerHTML = "";  
+  countryInfo.innerHTML = "";     
     fetchCountries(name)
       .then(response => {
         if (!response.ok) {      
@@ -83,7 +83,7 @@ function search(){
       })
       .catch(error => {
         //console.log(name); 
-        inp.value = "";
+        //inp.value = "";
         Notiflix.Notify.failure('Oops, there is no country with that name');        
       });
 };
