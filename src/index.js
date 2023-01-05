@@ -53,7 +53,7 @@ function createCountryElements(data){
     markupInfo = markupInfo1 + markupInfo2 + markupInfo3;
     markupInfo = `<ul class="country__infoList">`+markupInfo+`</ul>`;
     countryInfo.insertAdjacentHTML("beforeend", markupInfo);  
-    decorCountryInfo(countryInfo.firstChild);   
+    //decorCountryInfo(countryInfo.firstChild);   
   };  
 };
 
