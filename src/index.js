@@ -41,6 +41,7 @@ function createCountryElements(data){
   //console.log(data);
   let markup = data.map((country) => `<li class="country__item"><img class="country__image" src=${country.flags.svg} alt="flag of "+${country.altSpellings[1]} width="30" height="30"> <span> ${country.name.official}</span></li>`).join("");
   countryList.insertAdjacentHTML("beforeend", markup);
+  decorCountryArrayItems(countryList.children,data.length);  
    
   if (data.length < 2) { 
     const country = data[0];
@@ -53,18 +54,17 @@ function createCountryElements(data){
     markupInfo = `<ul class="country__infoList">`+markupInfo+`</ul>`;
     countryInfo.insertAdjacentHTML("beforeend", markupInfo);  
     decorCountryInfo(countryInfo.firstChild);   
-  };
-  decorCountryArrayItems(countryList.children,data.length);   
+  };  
 };
 
 let name = "";
 
-function search(){ 
-  name = inp.value.trim(); 
+function search(){   
   //console.log(name);    
-  if (name === ""){  
+  if (inp.value.trim() === "" || inp.value.trim() === name){  
     return;
   }  
+  name = inp.value.trim(); 
   countryList.innerHTML = "";  
   countryInfo.innerHTML = "";     
     fetchCountries(name)
