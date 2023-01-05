@@ -25,7 +25,6 @@ function decorCountryArrayItems(countryItems,lengthCountryArray){
 }    
 //aboutCountryElements
 function decorCountryInfo(countryInfoList){  
-  countryInfoList.style.listStyleType = "none";
   for (let index = 0; index < countryInfoList.children.length; index++) {
     const countryInfoItem = countryInfoList.children[index];
     countryInfoItem.style.fontSize = "20px";       
@@ -53,6 +52,7 @@ function createCountryElements(data){
     markupInfo = markupInfo1 + markupInfo2 + markupInfo3;
     markupInfo = `<ul class="country__infoList">`+markupInfo+`</ul>`;
     countryInfo.insertAdjacentHTML("beforeend", markupInfo);  
+    countryInfo.firstChild.style.listStyleType = "none";
     //decorCountryInfo(countryInfo.firstChild);   
   };  
 };
