@@ -23,22 +23,10 @@ function decorCountryArrayItems(countryItems,lengthCountryArray){
     countryItem.style.marginBottom = "10px";
   }; 
 }    
-//aboutCountryElements
-function decorCountryInfo(countryInfoList){  
-  for (let index = 0; index < countryInfoList.children.length; index++) {
-    const countryInfoItem = countryInfoList.children[index];
-    countryInfoItem.style.fontSize = "20px";       
-    countryInfoItem.style.fontWeight = "700";
-    countryInfoItemValues = document.querySelectorAll(".country__infoValue");
-    countryInfoItemValues.forEach(countryInfoItemValue => {
-      countryInfoItemValue.style.fontWeight = "400";
-    });    
-  };  
-};   
 
 function createCountryElements(data){
   //console.log(data);
-  let markup = data.map((country) => `<li class="country__item"><img class="country__image" src=${country.flags.svg} alt="flag of "+${country.altSpellings[1]} width="30" height="30"> <span> ${country.name.official}</span></li>`).join("");
+  let markup = data.map((country) => `<li class="country__item"><img class="country__image" src=${country.flags.svg} alt="flag of "+${country.altSpellings[1]} width="30" height="30"> <span> ${country.name.common}</span></li>`).join("");
   countryList.insertAdjacentHTML("beforeend", markup);
   decorCountryArrayItems(countryList.children,data.length);  
    
@@ -52,15 +40,18 @@ function createCountryElements(data){
     markupInfo = markupInfo1 + markupInfo2 + markupInfo3;
     markupInfo = `<ul class="country__infoList">`+markupInfo+`</ul>`;
     countryInfo.insertAdjacentHTML("beforeend", markupInfo);  
-    countryInfo.firstChild.style.listStyleType = "none";
-    //decorCountryInfo(countryInfo.firstChild);   
+    countryInfo.firstChild.style.listStyleType = "none";     
   };  
 };
 
 let name = "";
 
 function search(){   
-  //console.log(name);    
+  //console.log(name);
+  if (inp.value.trim() === ""){
+    countryList.innerHTML = ""; 
+    countryInfo.innerHTML = ""; 
+  }     
   if (inp.value.trim() === "" || inp.value.trim() === name){  
     return;
   }  
